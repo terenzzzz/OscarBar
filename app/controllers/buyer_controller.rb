@@ -1,2 +1,2 @@
-class BuyersController < ActionController::Base
+class BuyersController < ApplicationController
 end

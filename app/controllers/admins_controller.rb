@@ -1,5 +1,5 @@
-class AdminsController < ActionController::Base
+class AdminsController < ApplicationController
     def index
     end
-    
+
 end
