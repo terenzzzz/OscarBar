@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'ransack'
 gem 'devise'
 gem "erb2haml", :group => :development
+gem "image_processing", ">= 1.2"
 
 
 # Reduces boot times through caching; required in config/boot.rb
