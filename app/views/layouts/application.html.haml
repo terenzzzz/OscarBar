@@ -14,34 +14,21 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_pack_tag "application"
 
   
   %header{style: "background-color: black"}
     .container-fluid{style: "background-color: black"}
       %nav.navbar.navbar-expand-sm
-
-
         %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
           %span.bi.bi-list.text-white
         #navbarSupportedContent.collapse.navbar-collapse
-          %ul.navbar-nav.mr-auto
-          %li.navbar-nav.nav-item.dropdown.nav-link
-            %a#navbarDropdown.nav-link.dropdown-toggle.text-white.fs-2{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              University
-            .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-              %a.dropdown-item{:href => "/year_one"} Year 1
-              %a.dropdown-item{:href => "/year_two"} Year 2
-              %a.dropdown-item{:href => "/year_three"} Year 3
-              .dropdown-divider
-              %a.dropdown-item{:href => "/else"} Something else
           %li.navbar-nav.nav-link
-            %a.text-white.fs-2(href="/pages/about")  About
+            %a.text-white.fs-2(href="/pages/about")  鸡尾酒 Cocktail
           %li.navbar-nav.nav-link
-            %a.text-white.fs-2(href="/pages/pets")  Pets
-          %li.navbar-nav.nav-link
-            %a.text-white.fs-2(href="/music")  Music
-          %li.navbar-nav.nav-link
-            %a.text-white.fs-2(href="/pages/update")  Update
+            %a.text-white.fs-2(href="/pages/about")  威士忌 Whisky
+            
+            
 
 
   %main{style: "background-color: black"}
