@@ -1,0 +1,14 @@
+-# frozen_string_literal: true
+= simple_form_for (@user) do |f|
+
+  .form-inputs
+    -# = f.input :avatar, label: 'Add Avatar Here'
+    = f.input :name, placeholder:"Enter your name here", label: '姓名'
+    = f.input :mobile, placeholder:"Enter your job here", label: '手机号码'
+    = f.input :wechat, placeholder:"Enter your Wechat here", label: '微信号'
+    = f.input :apartment, placeholder:"Enter your apartment number here", label: '门牌号'
+
+
+  %br/
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary primary-button'

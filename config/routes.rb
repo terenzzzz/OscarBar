@@ -11,6 +11,10 @@ Rails.application.routes.draw do
    
   end
 
+  resources :profiles do
+   
+  end
+
   resources :pages do
     get 'home', on: :collection
   end

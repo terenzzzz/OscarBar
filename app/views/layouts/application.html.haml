@@ -33,7 +33,7 @@
                 .i.bi.bi-person-circle.display-6
               %nav.dropdown-menu.dropdown-menu-sm-end
                 = link_to '订单管理' , '/', class: 'dropdown-item', title: 'Go to the profile page'
-                = link_to '个人主页' , '/', class: 'dropdown-item', title: 'Go to the profile page'
+                = link_to '个人主页' , "/profiles/#{current_user.id}", class: 'dropdown-item', title: 'Go to the profile page'
                 = link_to '退出登录', destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system"
     
 
