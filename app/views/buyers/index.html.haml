@@ -1,1 +1,15 @@
-%p Buyer
+%h1 欢迎光临OscarBar!
+
+.row
+  - @products.each do |product|
+    .col-4
+      .card.h-100
+        .card-img-top
+          = image_tag product.images[0], class:'img-fluid'
+        .card-body
+          %p name:  #{product.name}
+          %p description:  #{product.description}
+          %p price:  #{product.price}
+          = link_to '加入购物车', '/'
+          
+
