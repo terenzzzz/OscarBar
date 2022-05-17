@@ -1,18 +1,23 @@
-%h2 Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email,                       |
-      required: true,                       |
-      autofocus: true,                      |
-      input_html: { autocomplete: "email" } |
-    = f.input :password,                                                                    |
-      required: true,                                                                       |
-      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), |
-      input_html: { autocomplete: "new-password" }                                          |
-    = f.input :password_confirmation,              |
-      required: true,                              |
-      input_html: { autocomplete: "new-password" } |
-  .form-actions
-    = f.button :submit, "Sign up"
-= render "devise/shared/links"
+- content_for :title, 'Sign Up'
+
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card.card-light
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .card-header
+          Sign Up
+        = f.error_notification
+        .card-body
+          -# = f.input :avatar, label: 'Add picture here:'
+          = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" },placeholder:"请输入邮箱地址", label: '邮箱地址'
+          = f.input :name, placeholder:"请输入姓名", label: '姓名'
+          = f.input :mobile, placeholder:"请输入手机号码", label: '手机号码'
+          = f.input :wechat, placeholder:"请输入微信号", label: '微信号'
+          = f.input :apartment, placeholder:"请输入门牌号码", label: '门牌号'
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } ,placeholder:"请在此输入密码",label: '密码'                                     |
+          = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" },placeholder:"请再次输入密码",label: '再次确认密码'
+
+        .card-footer
+          %button.btn.btn-primary.w-100{ type: :submit }
+            Sign Up
+          .mt-3= render "devise/shared/links"
