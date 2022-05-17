@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :pages do
-    
+    get 'home', on: :collection
   end
 
   root :to => redirect("/users/sign_in")
