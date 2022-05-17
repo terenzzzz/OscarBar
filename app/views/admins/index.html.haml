@@ -1,2 +1,7 @@
-=link_to 'Orders', '/', class: 'btn btn-primary primary-button'
-= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-primary primary-button', method: :delete, title: "Log out of the system"
+.d-grid.gap-2
+    .d-flex.justify-content-center
+        =link_to "查看订单", '/', class: 'btn btn-primary primary-button w-100'
+    .d-flex.justify-content-center
+        =link_to '查看产品', '/', class: 'btn btn-primary primary-button w-100'
+
+    = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-primary primary-button', method: :delete, title: "Log out of the system"
