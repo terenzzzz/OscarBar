@@ -1,19 +1,39 @@
-%h1 Listing products:
 
+= link_to 'New Product', new_product_path,class:'btn btn-primary'
+%br/
+%br/
+%h1 Cocktail:
 .row
-  - @products.each do |product|
+  - @cocktail.each do |cocktail|
     .col-4
       .card.h-100
         .card-img-top
-          = image_tag product.images[0], class:'img-fluid'
+          = image_tag cocktail.images[0], class:'img-fluid'
         .card-body
-          %p name:  #{product.name}
-          %p description:  #{product.description}
-          %p price:  #{product.price}
-          = link_to 'Show', product
-          = link_to 'Edit', edit_product_path(product)
-          = link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %p name:  #{cocktail.name}
+          %p description:  #{cocktail.description}
+          %p price:  #{cocktail.price}
+          = link_to 'Show', cocktail
+          = link_to 'Edit', edit_product_path(cocktail)
+          = link_to 'Destroy', cocktail, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+%br/
+%br/
+
+%h1 Whisky:
+.row
+  - @whisky.each do |whisky|
+    .col-4
+      .card.h-100
+        .card-img-top
+          = image_tag whisky.images[0], class:'img-fluid'
+        .card-body
+          %p name:  #{whisky.name}
+          %p description:  #{whisky.description}
+          %p price:  #{whisky.price}
+          = link_to 'Show', whisky
+          = link_to 'Edit', edit_product_path(whisky)
+          = link_to 'Destroy', whisky, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
-= link_to 'New Product', new_product_path,class:'btn btn-primary'
+

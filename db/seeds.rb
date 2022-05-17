@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.where(email:'admin@test.com').first_or_create(password:'592592', password_confirmation:'592592')
 User.where(email:'buyer@test.com').first_or_create(password:'592592', password_confirmation:'592592')
+
+Category.where(name:'Cocktail').first_or_create
+Category.where(name:'Whisky').first_or_create

@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     get 'home', on: :collection
   end
 
+  resources :categories
+
   root :to => redirect("/users/sign_in")
 end
