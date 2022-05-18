@@ -4,15 +4,18 @@
         %h2 商品：
         -if @cart = current_user.cart 
             - @cart.cart_products.each do |cart_product|
-                %li.list-group-item.d-flex.justify-content-between.lh-sm
-                    %div 
-                    %h6.my-0= cart_product.product.name 
-                    %span.text-muted= cart_product.pick_colour
-                    %span.text-muted= cart_product.pick_size
-                    %h6.my-0= "X  #{cart_product.quantity}"
-                    %span.text-muted= number_to_currency(cart_product.product.cost * cart_product.quantity)
-                    = link_to "Add", add_one_page_path(cart_product)
-                    = link_to "Remove", remove_cart_product_page_path(cart_product)
+                .card
+                    .row
+                        .col-2
+                            = image_tag cart_product.product.images[0], class:'img-fluid'
+                        .col-2
+                        .col-4
+                            %h6.my-0= cart_product.product.name 
+                            %h6.my-0= "X  #{cart_product.quantity}"
+                            %span.text-muted= number_to_currency(cart_product.product.price * cart_product.quantity)
+                        .col-4
+                            = link_to "加一个", add_one_page_path(cart_product),class:'btn btn-primary'
+                            = link_to "移除", remove_cart_product_page_path(cart_product),class:'btn btn-primary'
         -else
             - @cart = @current_user.create_cart
             - @cart.update_attribute(:total_price, 0)
@@ -21,8 +24,25 @@
         %br/
         %br/
         %h2 联系信息：
+        %table.table
+            %tr 
+                %td 姓名:
+                %td= current_user.name
+
+            %tr 
+                %td 手机号:
+                %td= current_user.mobile
+
+            %tr 
+                %td 微信号:
+                %td= current_user.wechat 
+
+            %tr 
+                %td 门牌号:
+                %td= current_user.apartment
+        %p *如需修改请到个人主页
     .card.footer 
-        %p 感谢您的支持
+        %p 感谢您对OscarBar的支持
 
 %br/
 = link_to '一键下单', '/', class:'btn btn-primary'

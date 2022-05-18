@@ -14,9 +14,9 @@ class PagesController < ApplicationController
         cart_product = CartProduct.find(params[:id])
         cart_product = cart_product.destroy
         cart_product.save
-        total_price = (@cart.total_price - (cart_product.product.cost * cart_product.quantity))
+        total_price = (@cart.total_price - (cart_product.product.price * cart_product.quantity))
         @cart.update_attribute(:total_price, total_price)
-        redirect_to home_path
+        redirect_to check_out_pages_path
       end
     
       def add_one
@@ -24,9 +24,9 @@ class PagesController < ApplicationController
         cart_product = CartProduct.find(params[:id])
         cart_product.quantity = cart_product.quantity + 1
         cart_product.save
-        total_price = (@cart.total_price + cart_product.product.cost)
+        total_price = (@cart.total_price + cart_product.product.price)
         @cart.update_attribute(:total_price, total_price)
-        redirect_to home_path
+        redirect_to check_out_pages_path
       end
     
       #need help with this

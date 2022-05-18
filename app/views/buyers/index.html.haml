@@ -10,7 +10,7 @@
     =link_to "/pages/check_out" ,class:"btn btn-primary position-relative"do
       .bi.bi-cart4.display-6
       %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger
-        0
+        =@total
         %span.visually-hidden unread messages
 %br/
 
@@ -25,7 +25,8 @@
           %p name:  #{cocktail.name}
           %p description:  #{cocktail.description}
           %p price:  #{cocktail.price}
-          = link_to '加入购物车', '/'
+          = link_to '加入购物车', add_cart_buyer_path(cocktail)
+
 
 %br/
 %br/

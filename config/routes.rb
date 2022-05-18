@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :buyers do
-   
+    get :add_cart, on: :member
   end
 
   resources :profiles do
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :pages do
     get 'home', on: :collection
     get 'check_out', on: :collection
+    get :remove_cart_product, on: :member
+    get :add_one, on: :member
   end
 
   resources :categories
