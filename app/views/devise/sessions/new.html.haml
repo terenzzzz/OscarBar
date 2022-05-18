@@ -5,11 +5,11 @@
     .card.card-light
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .card-header
-          Log In
+          登陆
         .card-body
-          = f.input :email, autofocus: true, required: true
-          = f.input :password, required: true
+          = f.input :email, autofocus: true, required: true,label: '邮箱地址'
+          = f.input :password, required: true,label: '密码'
         .card-footer
           %button.btn.btn-primary.w-100.mt-2{ type: :submit }
-            Log In
+            登陆
           .mt-3= render "devise/shared/links"
