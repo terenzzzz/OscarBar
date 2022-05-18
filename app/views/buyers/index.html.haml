@@ -1,5 +1,18 @@
-%h1 欢迎光临OscarBar!
 %br/
+.row 
+  .col-10
+    %h1 欢迎光临OscarBar!
+  .col-2
+    -# =link_to  '/' do
+    -#   .fa-solid.fa-cart-shopping.fa-2xl 
+    -#   .badge.bg-primary.rounded-pill=0
+    %button.btn.btn-primary.position-relative
+      .bi.bi-cart4.display-6
+      %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger
+        0
+        %span.visually-hidden unread messages
+%br/
+
 %h1 Cocktail:
 .row
   - @cocktail.each do |cocktail|
