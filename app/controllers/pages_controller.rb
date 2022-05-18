@@ -2,6 +2,16 @@ class PagesController < ApplicationController
     before_action :authenticate_user!, except: [:home]
     
     def home  
+      if user_signed_in?
+        if current_user.id == 1
+          redirect_to admins_path
+        else
+          redirect_to buyers_path
+        end
+      else
+        root_path
+      end
+
     end
 
     def check_out
