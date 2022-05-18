@@ -6,6 +6,12 @@ class BuyersController < ApplicationController
         @cocktail = Product.where(category_id:"1")
         @whisky = Product.where(category_id:"2")
 
+        total_quantity = 0
+        @cart_products = current_user.cart.cart_products
+        @cart_products.each do |cart_product|
+          total_quantity = total_quantity + cart_product.quantity    
+        end
+        @total_quantity = total_quantity
         
     end
     

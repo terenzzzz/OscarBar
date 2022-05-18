@@ -28,7 +28,7 @@ class PagesController < ApplicationController
         cart_product = cart_product.destroy
         cart_product.save
         total_price = (@cart.total_price - (cart_product.product.price * cart_product.quantity))
-        @cart.update_attribute(:total_price, total_price)
+        @cart.update_attribute(:total_price, total_price.round(2))
         redirect_to check_out_pages_path
       end
     
@@ -38,7 +38,7 @@ class PagesController < ApplicationController
         cart_product.quantity = cart_product.quantity + 1
         cart_product.save
         total_price = (@cart.total_price + cart_product.product.price)
-        @cart.update_attribute(:total_price, total_price)
+        @cart.update_attribute(:total_price, total_price.round(2))
         redirect_to check_out_pages_path
       end
 
@@ -49,7 +49,7 @@ class PagesController < ApplicationController
           cart_product.quantity = cart_product.quantity - 1
           cart_product.save
           total_price = (@cart.total_price - cart_product.product.price)
-          @cart.update_attribute(:total_price, total_price)
+          @cart.update_attribute(:total_price, total_price.round(2))
           redirect_to check_out_pages_path
         else
           @cart = current_user.cart
@@ -57,7 +57,7 @@ class PagesController < ApplicationController
           cart_product = cart_product.destroy
           cart_product.save
           total_price = (@cart.total_price - (cart_product.product.price * cart_product.quantity))
-          @cart.update_attribute(:total_price, total_price)
+          @cart.update_attribute(:total_price, total_price.round(2))
           redirect_to check_out_pages_path
         end
 
