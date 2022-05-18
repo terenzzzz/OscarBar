@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :pages do
     get 'home', on: :collection
+    get 'check_out', on: :collection
   end
 
   resources :categories
