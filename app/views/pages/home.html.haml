@@ -6,8 +6,10 @@
     %h1 欢迎光临OscarBar!
     =link_to "登陆", "/users/sign_in",class:'btn btn-primary'
     = link_to "注册", "/users/sign_up",class:'btn btn-primary'
+%br/
+%br/
 
-%h1 Cocktail:
+%h3 鸡尾酒 Cocktail:
 .row
   - @cocktail.each do |cocktail|
     .col-4
@@ -15,14 +17,14 @@
         .card-img-top
           = image_tag cocktail.images[0], class:'img-fluid'
         .card-body
-          %p name:  #{cocktail.name}
-          %p description:  #{cocktail.description}
-          %p price:  #{cocktail.price}
+          %p 名称:  #{cocktail.name}
+          %p 描述:  #{cocktail.description}
+          %p 价格:  #{cocktail.price}
 
 %br/
 %br/
 
-%h1 Whisky:
+%h3 威士忌 Whisky:
 .row
   - @whisky.each do |whisky|
     .col-4
@@ -30,9 +32,9 @@
         .card-img-top
           = image_tag whisky.images[0], class:'img-fluid'
         .card-body
-          %p name:  #{whisky.name}
-          %p description:  #{whisky.description}
-          %p price:  #{whisky.price}
+          %p 名称:  #{whisky.name}
+          %p 描述:  #{whisky.description}
+          %p 价格:  #{whisky.price}
 
 %br
 

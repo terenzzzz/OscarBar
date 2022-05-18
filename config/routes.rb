@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'check_out', on: :collection
     get :remove_cart_product, on: :member
     get :add_one, on: :member
+    get :reduce_one, on: :member
   end
 
   resources :categories

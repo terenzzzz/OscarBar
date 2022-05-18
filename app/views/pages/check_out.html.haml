@@ -16,6 +16,7 @@
                         .col-4
                             = link_to "加一个", add_one_page_path(cart_product),class:'btn btn-primary'
                             = link_to "移除", remove_cart_product_page_path(cart_product),class:'btn btn-primary'
+                            = link_to "减一个", reduce_one_page_path(cart_product),class:'btn btn-primary'
         -else
             - @cart = @current_user.create_cart
             - @cart.update_attribute(:total_price, 0)

@@ -5,10 +5,14 @@ class BuyersController < ApplicationController
         @products = Product.all
         @cocktail = Product.where(category_id:"1")
         @whisky = Product.where(category_id:"2")
-        
+
         
     end
-
+    
+    def create_cart
+      @cart = current_user.create_cart
+      redirect_to "/"
+    end
 
     def add_cart
         @cart = current_user.cart

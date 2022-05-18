@@ -1,3 +1,8 @@
+-if @cart = current_user.cart
+-else
+  - @cart = current_user.create_cart
+  - @cart.update_attribute(:total_price, 0)
+
 %br/
 .row 
   .col-10

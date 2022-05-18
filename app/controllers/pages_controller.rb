@@ -41,6 +41,27 @@ class PagesController < ApplicationController
         @cart.update_attribute(:total_price, total_price)
         redirect_to check_out_pages_path
       end
+
+      def reduce_one
+        @cart = current_user.cart
+        cart_product = CartProduct.find(params[:id])
+        if cart_product.quantity > 1
+          cart_product.quantity = cart_product.quantity - 1
+          cart_product.save
+          total_price = (@cart.total_price - cart_product.product.price)
+          @cart.update_attribute(:total_price, total_price)
+          redirect_to check_out_pages_path
+        else
+          @cart = current_user.cart
+          cart_product = CartProduct.find(params[:id])
+          cart_product = cart_product.destroy
+          cart_product.save
+          total_price = (@cart.total_price - (cart_product.product.price * cart_product.quantity))
+          @cart.update_attribute(:total_price, total_price)
+          redirect_to check_out_pages_path
+        end
+
+      end
     
       #need help with this
       def total_cost
