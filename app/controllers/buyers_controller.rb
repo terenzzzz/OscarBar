@@ -7,6 +7,11 @@ class BuyersController < ApplicationController
         @whisky = Product.where(category_id:"2")
 
         total_quantity = 0
+        if current_user.cart == nil
+          @cart = current_user.create_cart
+          @cart.update_attribute(:total_price, 0)
+        end
+        
         @cart_products = current_user.cart.cart_products
         @cart_products.each do |cart_product|
           total_quantity = total_quantity + cart_product.quantity    
