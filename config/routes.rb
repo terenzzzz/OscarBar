@@ -24,5 +24,5 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  root :to => redirect("/users/sign_in")
+  root to: "pages#home"
 end
