@@ -5,10 +5,8 @@ class BuyersController < ApplicationController
         @products = Product.all
         @cocktail = Product.where(category_id:"1")
         @whisky = Product.where(category_id:"2")
-        @total = 0
-        current_user.cart.cart_products do |product|
-          @total = @total + product.quantity
-        end
+        
+        
     end
 
 
