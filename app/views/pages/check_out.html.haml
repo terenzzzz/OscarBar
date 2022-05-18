@@ -11,12 +11,13 @@
                         .col-2
                         .col-4
                             %h6.my-0= cart_product.product.name 
-                            %h6.my-0= "X  #{cart_product.quantity}"
+
                             %span.text-muted= number_to_currency(cart_product.product.price * cart_product.quantity)
                         .col-4
-                            = link_to "加一个", add_one_page_path(cart_product),class:'btn btn-primary'
-                            = link_to "移除", remove_cart_product_page_path(cart_product),class:'btn btn-primary'
-                            = link_to "减一个", reduce_one_page_path(cart_product),class:'btn btn-primary'
+                            = link_to "-", reduce_one_page_path(cart_product),class:'btn btn-secondary'
+                            %h6.my-0.d-inline= "X #{cart_product.quantity}"
+                            = link_to "+", add_one_page_path(cart_product),class:'btn btn-primary'
+                            
         -else
             - @cart = @current_user.create_cart
             - @cart.update_attribute(:total_price, 0)
@@ -24,6 +25,8 @@
         %br/
         %br/
         %br/
+        .d-flex.justify-content-end
+            %h4 总价(£): #{@cart.total_price} 
         %h2 联系信息：
         %table.table
             %tr 
@@ -41,9 +44,10 @@
             %tr 
                 %td 门牌号:
                 %td= current_user.apartment
-        %p *如需修改请到个人主页
-    .card.footer 
-        %p 感谢您对OscarBar的支持
+        %p.text-muted *如需修改联系信息请到个人主页
+    .card.footer
+        .d-flex.justify-content-center
+            %p 感谢您对OscarBar的支持!
 
 %br/
 = link_to '一键下单', '/', class:'btn btn-primary'
