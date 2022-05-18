@@ -2,6 +2,20 @@
     %h1 订单详情
     .card.body
         %h2 商品：
+        -if @cart = current_user.cart 
+            - @cart.cart_products.each do |cart_product|
+                %li.list-group-item.d-flex.justify-content-between.lh-sm
+                    %div 
+                    %h6.my-0= cart_product.product.name 
+                    %span.text-muted= cart_product.pick_colour
+                    %span.text-muted= cart_product.pick_size
+                    %h6.my-0= "X  #{cart_product.quantity}"
+                    %span.text-muted= number_to_currency(cart_product.product.cost * cart_product.quantity)
+                    = link_to "Add", add_one_page_path(cart_product)
+                    = link_to "Remove", remove_cart_product_page_path(cart_product)
+        -else
+            - @cart = @current_user.create_cart
+            - @cart.update_attribute(:total_price, 0)
         %br/
         %br/
         %br/

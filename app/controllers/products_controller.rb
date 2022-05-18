@@ -61,6 +61,22 @@ class ProductsController < ApplicationController
     end
   end
 
+  def create_cart
+    @cart = current_user.create_cart
+    redirect_to "/"
+  end
+
+  def add_cart
+    @cart = current_user.cart
+    @product = Product.find(params[:id])
+    cart_product = @cart.cart_products.where(add_to_cart_params.merge(product: @product)).first_or_create
+    cart_product.quantity = (cart_product.quantity + 1)
+    cart_product.save
+    total_price = (@cart.total_price + cart_product.product.cost)
+    @cart.update_attribute(:total_price, total_price)
+    redirect_to products_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
