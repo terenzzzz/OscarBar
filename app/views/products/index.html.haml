@@ -12,10 +12,10 @@
         .card-img-top
           = image_tag cocktail.images[0], class:'img-fluid'
         .card-body
-          %p name:  #{cocktail.name}
-          %p description:  #{cocktail.description}
-          %p price:  #{cocktail.price}
-          = link_to '查看', cocktail
+          %p #{cocktail.name}
+          -# %p description:  #{cocktail.description}
+          %p 价格(£):  #{cocktail.price}
+          -# = link_to '查看', cocktail
           = link_to '编辑', edit_product_path(cocktail)
           = link_to '删除', cocktail, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
