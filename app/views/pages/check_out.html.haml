@@ -12,7 +12,7 @@
                         .col-4
                             %h6.my-0= cart_product.product.name 
 
-                            %span.text-muted= number_to_currency(cart_product.product.price * cart_product.quantity)
+                            %span.text-muted= number_to_currency_gbp(cart_product.product.price * cart_product.quantity)
                         .col-4
                             = link_to "-", reduce_one_page_path(cart_product),class:'btn btn-secondary'
                             %h6.my-0.d-inline= "X #{cart_product.quantity}"
