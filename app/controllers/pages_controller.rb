@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 
     def check_out
         @cart = current_user.cart
+        @rmb = (@cart.total_price * 8.5).round(2)
         
     end
 
@@ -64,13 +65,13 @@ class PagesController < ApplicationController
       end
     
       
-      def total_cost
-        cost = 0
-        @cart = current_user.cart
-        @cart.cart_products.each do |cart_product|
-          total_cost = (cart_product.product.price * cart_product.quantity + cost)
-        end
-        return total_cost 
-      end
+      # def total_cost
+      #   cost = 0
+      #   @cart = current_user.cart
+      #   @cart.cart_products.each do |cart_product|
+      #     total_cost = (cart_product.product.price * cart_product.quantity + cost)
+      #   end
+      #   return total_cost 
+      # end
 
 end

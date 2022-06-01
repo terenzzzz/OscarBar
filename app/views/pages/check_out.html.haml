@@ -1,7 +1,7 @@
 .card.h-100
     %h1 订单详情
-    .card.body
-        %h2 商品：
+    .card.body.p-2
+        %h3 商品：
         -if @cart = current_user.cart 
             - @cart.cart_products.each do |cart_product|
                 .card
@@ -22,12 +22,19 @@
             - @cart = @current_user.create_cart
             - @cart.update_attribute(:total_price, 0)
         %br/
-        %br/
-        %br/
-        %br/
+
         .d-flex.justify-content-end
-            %h4 总价(£): #{@cart.total_price} 
-        %h2 联系信息：
+            %h4 总价(£): #{@cart.total_price.round(2)}
+        .d-flex.justify-content-end
+            %p.text-muted (¥): #{@rmb}
+        %h3 支付方式：
+        .btn-block
+            = link_to '微信支付', '/', class:'btn btn-primary'
+            = link_to '支付宝支付', '/', class:'btn btn-primary'
+            = link_to '银行卡转账', '/', class:'btn btn-primary'
+            = link_to '现金支付', '/', class:'btn btn-primary'
+        %br/
+        %h3 联系信息：
         %table.table
             %tr 
                 %td 姓名:
@@ -50,4 +57,5 @@
             %p 感谢您对OscarBar的支持!
 
 %br/
-= link_to '一键下单', '/', class:'btn btn-primary'
+.d-flex.justify-content-end 
+    = link_to '一键下单', '/', class:'btn btn-outline-success'
