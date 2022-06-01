@@ -1,0 +1,11 @@
+-# frozen_string_literal: true
+= simple_form_for(@rate) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :exchange_rate
+
+  .form-actions
+    = link_to '返回', rates_path
+    = f.submit "提交"

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments
   def index
+    @rate = Rate.first
     @payments = Payment.all
   end
 

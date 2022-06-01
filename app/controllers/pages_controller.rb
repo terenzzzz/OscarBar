@@ -18,9 +18,10 @@ class PagesController < ApplicationController
     end
 
     def check_out
+        @rate = Rate.first.exchange_rate
         @payments = Payment.all
         @cart = current_user.cart
-        @rmb = (@cart.total_price * 8.5).round(2)
+        @rmb = (@cart.total_price * @rate).round(2)
         
     end
 

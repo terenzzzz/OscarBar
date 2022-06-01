@@ -10,3 +10,5 @@ User.where(email:'buyer@test.com').first_or_create(password:'592592', password_c
 
 Category.where(name:'Cocktail').first_or_create
 Category.where(name:'Whisky').first_or_create
+
+Rate.first_or_create(exchange_rate: '8.5')
