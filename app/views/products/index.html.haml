@@ -33,9 +33,9 @@
           %p name:  #{whisky.name}
           %p description:  #{whisky.description}
           %p price:  #{whisky.price}
-          = link_to 'Show', whisky
-          = link_to 'Edit', edit_product_path(whisky)
-          = link_to 'Destroy', whisky, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          -# = link_to 'Show', whisky
+          = link_to '编辑', edit_product_path(whisky)
+          = link_to '删除', whisky, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
 
