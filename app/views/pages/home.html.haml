@@ -12,7 +12,7 @@
 %h3 鸡尾酒 Cocktail:
 .row
   - @cocktail.each do |cocktail|
-    .col-4
+    .col-6.col-md-3
       .card.h-100
         .card-img-top
           = image_tag cocktail.images[0], class:'img-fluid'
@@ -27,7 +27,7 @@
 %h3 威士忌 Whisky:
 .row
   - @whisky.each do |whisky|
-    .col-4
+    .col-6.col-md-3
       .card.h-100
         .card-img-top
           = image_tag whisky.images[0], class:'img-fluid'
