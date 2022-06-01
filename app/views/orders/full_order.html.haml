@@ -1,0 +1,46 @@
+.card.h-100
+    %h1 订单详情
+    .card.body.p-2
+        %h3 商品：
+
+        - @order_products.each do |order_product|
+            .card
+                .row
+                    .col-2
+                        = image_tag Product.find(order_product.product_id).images[0], class:'img-fluid'
+                    .col-2
+                    .col-4
+                        %h6.my-0= Product.find(order_product.product_id).name + ' X' + order_product.quantity.to_s
+                        %span.text-muted= number_to_currency_gbp(Product.find(order_product.product_id).price * order_product.quantity)
+
+                            
+
+        %br/
+
+        .d-flex.justify-content-end
+            %h4 总价(£): #{@order.total_price.round(2)}
+        .d-flex.justify-content-end
+            %p.text-muted (¥): #{@rmb}
+
+        %br/
+        %h3 联系信息：
+        %table.table
+            %tr 
+                %td 姓名:
+                %td= @user.name
+
+            %tr 
+                %td 手机号:
+                %td= @user.mobile
+
+            %tr 
+                %td 微信号:
+                %td= @user.wechat 
+
+            %tr 
+                %td 门牌号:
+                %td= @user.apartment
+        %p.text-muted *如需修改联系信息请到个人主页
+    .card.footer
+        .d-flex.justify-content-center
+            %p 感谢您对OscarBar的支持!
