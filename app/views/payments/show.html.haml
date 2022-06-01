@@ -1,9 +1,20 @@
-%p#notice= notice
+-if current_user.id == 1
+  %br/
+  .d-flex.justify-content-center
+    %h3 #{@payment.name}
+  .d-flex.justify-content-center  
+    %p= image_tag @payment.proof, class:'img-fluid'
 
-%p
-  %b Name:
-  = @payment.name
 
-= link_to 'Edit', edit_payment_path(@payment)
-\|
-= link_to 'Back', payments_path
+  = link_to '返回', payments_path, class:'btn btn-primary'
+  = link_to '编辑', edit_payment_path(@payment), class:'btn btn-primary'
+
+-else
+  %br/
+  .d-flex.justify-content-center
+    %h3 #{@payment.name}
+  .d-flex.justify-content-center  
+    %p= image_tag @payment.proof, class:'img-fluid'
+
+  = link_to '取消支付', '/pages/check_out', class:'btn btn-primary'
+  = link_to '上传支付截图', '/', class:'btn btn-primary'
