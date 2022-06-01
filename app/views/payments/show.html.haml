@@ -15,6 +15,9 @@
     %h3 #{@payment.name}
   .d-flex.justify-content-center  
     %p= image_tag @payment.proof, class:'img-fluid'
+  .d-flex.justify-content-center
+    %h4 请支付(£): #{@total.round(2)} 或者 (¥): #{@rmb}
+ 
 
   = link_to '取消支付', '/pages/check_out', class:'btn btn-primary'
   = link_to '上传支付截图', '/', class:'btn btn-primary'

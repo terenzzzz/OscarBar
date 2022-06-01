@@ -9,6 +9,10 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1
   def show
+    @cart = current_user.cart
+    @rate = Rate.first.exchange_rate
+    @rmb = (@cart.total_price * @rate).round(2)
+    @total = @cart.total_price
   end
 
   # GET /payments/new
