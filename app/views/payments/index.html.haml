@@ -1,0 +1,17 @@
+%h1 管理支付方式
+%br/
+
+.row
+    - @payments.each do |payment|
+        .col-6.col-md-4
+            =link_to payment,class: "text-decoration-none" do
+                .card.bg-light.h-100
+                    .card-img-top
+                        = image_tag payment.proof, class:'img-fluid'
+                    .card-body
+                        %h4.text-black #{payment.name}
+                    .card-footer
+                        = link_to '编辑', edit_payment_path(payment)
+                        = link_to '删除', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br/
+= link_to '添加新支付方式', new_payment_path, class:'btn btn-primary'

@@ -18,6 +18,7 @@ class PagesController < ApplicationController
     end
 
     def check_out
+        @payments = Payment.all
         @cart = current_user.cart
         @rmb = (@cart.total_price * 8.5).round(2)
         

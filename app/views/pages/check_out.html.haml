@@ -29,10 +29,8 @@
             %p.text-muted (¥): #{@rmb}
         %h3 支付方式：
         .btn-block
-            = link_to '微信支付', '/', class:'btn btn-primary'
-            = link_to '支付宝支付', '/', class:'btn btn-primary'
-            = link_to '银行卡转账', '/', class:'btn btn-primary'
-            = link_to '现金支付', '/', class:'btn btn-primary'
+            - @payments.each do |payment|
+                = link_to "#{payment.name}", payment, class:'btn btn-primary'
         %br/
         %h3 联系信息：
         %table.table

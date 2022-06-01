@@ -1,0 +1,14 @@
+-# frozen_string_literal: true
+= simple_form_for(@payment) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.file_field :proof
+    = f.input :支付名称
+  
+  %br/
+  .form-actions
+    = link_to '返回', payments_path, class:'btn btn-primary'
+    = f.submit "提交", class:'btn btn-primary'
+
