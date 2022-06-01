@@ -1,0 +1,29 @@
+.row
+    .col-offset-1
+        .row 
+            .col-2
+                ID:
+            .col-6
+                商品
+            .col-2
+                价格
+            .col-2
+                状态
+
+        - @orders.each do |order|
+            =link_to  "/orders/#{order.id}/full_order" do
+                .card
+                    .row 
+                        .col-2
+                            %p #{order.id}
+                        .col-6
+                            #{getProduct(order.order_products)}
+                        .col-2
+                            #{order.total_price.round(2)}
+                        .col-2
+                            '/'
+
+:css
+    .nounderline {
+        text-decoration: none !important
+    }
