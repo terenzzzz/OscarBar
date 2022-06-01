@@ -21,6 +21,8 @@ gem 'pg'
 gem 'hamlit'
 gem 'hamlit-rails'
 
+gem "aws-sdk-s3", require: false
+
 gem 'simple_form'
 gem 'ransack'
 gem 'devise'
