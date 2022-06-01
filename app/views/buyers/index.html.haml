@@ -13,7 +13,7 @@
     -#   .badge.bg-primary.rounded-pill=0
 
     =link_to "/pages/check_out" ,class:"btn btn-primary position-relative"do
-      .bi.bi-cart4.display-6
+      .bi.bi-cart4.display-7
       %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger
         =@total_quantity
         %span.visually-hidden unread messages
@@ -24,10 +24,12 @@
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
       .card.h-100
-        .card-img-top
+        .card-img-top 
           = image_tag cocktail.images[0], class:'img-fluid'
+          -# %span.position-absolute.top-0.start-100.translate-middle.p-3.bg.warning.rounded-circle
+          -#   %span.bi.bi-hand-thumbs-up-fill.display-6
         .card-body
-          %p 名称:  #{cocktail.name}
+          %p #{cocktail.name}
           -# %p description:  #{cocktail.description}
           %p 价格(£):  #{cocktail.price}
           = link_to '加入购物车', add_cart_buyer_path(cocktail)
