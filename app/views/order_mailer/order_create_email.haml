@@ -4,9 +4,16 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %h1
-      Welcome to OscarBar, #{@user.name}
+      感谢关顾OscarBar！
+    %p To #{@user.name}：
     %p
-      You have successfully place your order,
+      您好：您已经成功下单:
+    %p 您的订单是
+    %a
+      #{@productList}
+    %p 
+      请耐心等待，我们会以最快的速度给你出餐！
       %br/
+
     %p
-    %p Thanks you for supporting OscarBar and have a great day!
+    %p 感谢您对OscarBar的支持，祝您有一个美好的一天!

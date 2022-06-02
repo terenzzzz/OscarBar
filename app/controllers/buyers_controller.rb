@@ -2,7 +2,6 @@ class BuyersController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        OrderMailer.with(user: current_user).order_create_email.deliver_later
         @products = Product.all
         @cocktail = Product.where(category_id:"1")
         @whisky = Product.where(category_id:"2")

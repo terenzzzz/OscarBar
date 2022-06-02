@@ -1,8 +1,17 @@
 class OrderMailer < ApplicationMailer
-    default from: 'notifications@example.com'
+    default from: 'OscarBar'
 
     def order_create_email
         @user = params[:user]
-        mail(to: 'terence592592@gmail.com', subject: 'Order have been placed')
+        @products =params[:products]
+
+        goods = ''
+        @products.each do |product|
+            goods =  goods +  ' ' + (Product.find(product.product_id).name + ' X' + product.quantity.to_s)
+        end
+
+        @productList = goods
+        
+        mail(to: @user.email, subject: 'Order have been placed')
     end
 end
