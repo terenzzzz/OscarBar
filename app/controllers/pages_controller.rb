@@ -87,7 +87,7 @@ class PagesController < ApplicationController
           end
           @cart.destroy
           session[:newOrder] = nil
-          OrderMailer.with(user: current_user, products:@product_string).order_create_email.deliver_later
+          OrderMailer.with(user: current_user, products:@product_string ).order_create_email.deliver_later
           redirect_to '/pages/home',notice:"订单提交成功"
           
         else

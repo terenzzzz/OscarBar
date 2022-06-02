@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %p To Oscar：
+    
+    %p Oscarbar 有新的订单：
+    %p 
+        订单信息：
+    %p 用户名： #{@user.name}
+    %p 房间号： #{@user.apartment}
+    %a
+      商品： #{@products}
+    %p 
+
+    %p
+    %p 详情请登录主页
+        %a(href="http://oscarbar.pub") 查看
