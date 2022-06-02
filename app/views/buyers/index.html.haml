@@ -49,7 +49,7 @@
           %p.fw-bold #{whisky.name}
           -# %p description:  #{whisky.description}
           %p 价格(£):  #{whisky.price}
-          = link_to '加入购物车', '/'
+          = link_to '加入购物车', add_cart_buyer_path(whisky)
 
 %br
 
