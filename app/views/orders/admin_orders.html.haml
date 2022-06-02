@@ -7,30 +7,33 @@
         .row 
             .col-2
                 ID:
-            .col-6
+            .col-4
                 商品
             .col-2
                 价格
             .col-2
                 状态
+            .col-2
+                操作
 
         - @orders.each do |order|
-            =link_to  "/orders/#{order.id}/full_order" do
-                .card
-                    .row.align-items-center 
-                        .col-2
-                            %p #{order.id}
-                        .col-6
-                            .row.g-0
-                                - order.order_products.each do |product|
-                                    .col-2
-                                        = image_tag Product.find(product.product_id).images[0], class:'img-fluid'
-                        .col-2
-                            #{order.total_price.round(2)}
-                        .col-2
-                            '/'
 
-:css
-    .nounderline {
-        text-decoration: none !important
-    }
+            .card
+                .row.align-items-center 
+                    .col-2
+                        %p #{order.id}
+                    .col-4
+                        .row.g-0
+                            - order.order_products.each do |product|
+                                .col-2
+                                    = image_tag Product.find(product.product_id).images[0], class:'img-fluid'
+                    .col-2
+                        #{order.total_price.round(2)}
+                    .col-1
+                        '/'
+                    .col-3
+                        =link_to "查看", "/orders/#{order.id}/full_order",class:"btn btn-outline-primary"
+                        =link_to "删除", order,class:"btn btn-outline-danger", :method => :delete, :data => { :confirm => '确定要删除此订单吗?' }
+                        
+
+                        

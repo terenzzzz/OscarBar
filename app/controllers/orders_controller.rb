@@ -24,6 +24,12 @@ class OrdersController < ApplicationController
 
     end
 
+    def destroy
+        @order = Order.find(params[:id])
+        @order.destroy
+        redirect_to '/orders/admin_orders', notice:'删除订单成功'
+    end
+
     def update
         @order = Order.where(user_id: current_user.id).last
         if @order.update(order_params)
