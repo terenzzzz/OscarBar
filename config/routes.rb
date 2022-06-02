@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :orders do
     get 'admin_orders', on: :collection
+    get 'buyer_orders', on: :collection
     get 'full_order', on: :member
   end
 

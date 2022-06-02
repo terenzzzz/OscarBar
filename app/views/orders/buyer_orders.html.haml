@@ -1,0 +1,36 @@
+%br/
+.d-flex.justify-content-center 
+    %h1 订单管理
+%br/
+.row
+    .col-offset-1
+        .row 
+            .col-2
+                ID:
+            .col-6
+                商品
+            .col-2
+                价格
+            .col-2
+                状态
+
+        - @orders.each do |order|
+            =link_to  "/orders/#{order.id}/full_order" do
+                .card
+                    .row.align-items-center 
+                        .col-2
+                            %p #{order.id}
+                        .col-6
+                            .row.g-0
+                                - order.order_products.each do |product|
+                                    .col-2
+                                        = image_tag Product.find(product.product_id).images[0], class:'img-fluid'
+                        .col-2
+                            #{order.total_price.round(2)}
+                        .col-2
+                            '/'
+
+:css
+    .nounderline {
+        text-decoration: none !important
+    }

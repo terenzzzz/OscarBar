@@ -13,5 +13,8 @@ class OrdersController < ApplicationController
         @rmb = (@order.total_price * @rate).round(2)
     end
 
+    def buyer_orders
+        @orders = Order.where(user_id: current_user.id)
+    end
 
 end
