@@ -1,15 +1,13 @@
--if current_user.id == 1
+-if session[:role] == 'Admin'
   %br/
   .d-flex.justify-content-center
     %h3 #{@payment.name}
   .d-flex.justify-content-center  
     %p= image_tag @payment.proof, class:'img-fluid'
-
-
   = link_to '返回', payments_path, class:'btn btn-primary'
   = link_to '编辑', edit_payment_path(@payment), class:'btn btn-primary'
 
--else
+-if session[:role] == 'User'
   %br/
   .d-flex.justify-content-center
     %h3 #{@payment.name}

@@ -11,8 +11,11 @@ class PaymentsController < ApplicationController
   def show
     @cart = current_user.cart
     @rate = Rate.first.exchange_rate
-    @rmb = (@cart.total_price * @rate).round(2)
-    @total = @cart.total_price
+    if session[:role] == 'User'
+      @rmb = (@cart.total_price * @rate).round(2)
+      @total = @cart.total_price
+    end
+    
   end
 
   # GET /payments/new

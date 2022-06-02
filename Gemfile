@@ -20,7 +20,7 @@ gem 'pg'
 
 gem 'hamlit'
 gem 'hamlit-rails'
-
+gem 'activerecord-session_store'
 gem "aws-sdk-s3", require: false
 
 gem 'simple_form'
