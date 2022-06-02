@@ -34,7 +34,9 @@
                 .i.bi.bi-person-circle.display-6
               %nav.dropdown-menu.dropdown-menu-sm-end
                 - if session[:role] == 'Admin'
-                  = link_to '订单管理' , '/orders/admin_orders', class: 'dropdown-item', title: 'Go to the profile page'
+                  = link_to '订单管理' , '/orders/admin_orders', class: 'dropdown-item'
+                  = link_to '产品管理', '/products',class: 'dropdown-item'
+                  =link_to '支付方式管理', '/payments',class: 'dropdown-item'
                 -else 
                   = link_to '订单管理' , '/orders/buyer_orders', class: 'dropdown-item', title: 'Go to the profile page'
                 = link_to '个人主页' , "/profiles/#{current_user.id}", class: 'dropdown-item', title: 'Go to the profile page'

@@ -1,10 +1,10 @@
 .d-grid.gap-2
 
     .d-flex.justify-content-center
-        =link_to "查看订单", '/orders/admin_orders', class: 'btn btn-primary primary-button w-100'
+        =link_to "订单管理", '/orders/admin_orders', class: 'btn btn-primary primary-button w-100'
     .d-flex.justify-content-center
-        =link_to '查看产品', '/products', class: 'btn btn-primary primary-button w-100'
+        =link_to '产品管理', '/products', class: 'btn btn-primary primary-button w-100'
     .d-flex.justify-content-center
-        =link_to '管理支付方式', '/payments', class: 'btn btn-primary primary-button w-100'
+        =link_to '支付方式管理', '/payments', class: 'btn btn-primary primary-button w-100'
 
     = link_to '退出登录', destroy_user_session_path, class: 'btn btn-primary primary-button', method: :delete, title: "Log out of the system"
