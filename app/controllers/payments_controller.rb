@@ -14,8 +14,19 @@ class PaymentsController < ApplicationController
     if session[:role] == 'User'
       @rmb = (@cart.total_price * @rate).round(2)
       @total = @cart.total_price
+      @order = Order.create(user_id: current_user.id, total_price: @cart.total_price)
+      session[:newOrder] = "Created"
     end
     
+  end
+
+  def cancel_payment
+    @cart = current_user.cart
+    if session[:newOrder] = "Created"
+      @order_to_cencel = Order.where(user_id: current_user.id, total_price: @cart.total_price).last
+      @order_to_cencel.destroy
+    end
+      redirect_to '/payments/choose_payment'
   end
 
   # GET /payments/new
@@ -51,6 +62,10 @@ class PaymentsController < ApplicationController
   def destroy
     @payment.destroy
     redirect_to payments_url, notice: '支付方式删除成功'
+  end
+
+  def choose_payment
+    @payments = Payment.all
   end
 
   private

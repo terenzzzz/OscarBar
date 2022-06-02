@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   resources :rates
-  resources :payments
   devise_for :users
   resources :users
   resources :products
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :admins do
   end
+
+  resources :payments do
+    get 'choose_payment', on: :collection
+    get 'cancel_payment', on: :collection
+  end
+
 
   resources :orders do
     get 'admin_orders', on: :collection

@@ -18,9 +18,12 @@ class PagesController < ApplicationController
     end
 
     def check_out
-        
-        @payments = Payment.all
         @cart = current_user.cart
+        if session[:newOrder] == "Created"
+          @order = Order.where(user_id: current_user.id, total_price: @cart.total_price).last
+        end
+
+        @payments = Payment.all
         @rate = Rate.first.exchange_rate
         @rmb = (@cart.total_price * @rate).round(2)
         
@@ -77,7 +80,8 @@ class PagesController < ApplicationController
         end
 
         @cart.destroy
-        redirect_to '/pages/home'
+        session[:newOrder] = nil
+        redirect_to '/pages/home',notice:"订单提交成功"
       end
 
       # def total_cost

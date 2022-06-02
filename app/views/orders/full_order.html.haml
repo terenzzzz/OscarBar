@@ -24,6 +24,15 @@
         .d-flex.justify-content-end
             %p.text-muted.fst-italic (¥): #{@rmb}
 
+        %h3 支付截图：
+        .row
+            -if @order.transferent.attached?
+                .col-5
+                    =image_tag @order.transferent, class:'img-fluid'
+            -else 
+                %p 用户没有上传
+
+
         %br/
         %h3 联系信息：
         %table.table

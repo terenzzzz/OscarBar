@@ -1,0 +1,11 @@
+= simple_form_for(@order) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    %p 上传照片：
+    = f.file_field :transferent
+  %br/
+  .form-actions
+    = link_to '返回','/payments/cancel_payment', class:'btn btn-primary'
+    = f.submit "上传", class:'btn btn-primary'

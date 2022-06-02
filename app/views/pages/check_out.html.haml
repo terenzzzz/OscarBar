@@ -5,7 +5,7 @@
         -if @cart = current_user.cart 
             - @cart.cart_products.each do |cart_product|
                 .card
-                    .row
+                    .row.align-items-center
                         .col-2
                             = image_tag cart_product.product.images[0], class:'img-fluid'
                         .col-2
@@ -24,14 +24,20 @@
         %br/
 
         .d-flex.justify-content-end
-            %h4 总价(£): #{@cart.total_price.round(2)}
+            %h4.fst-italic 总价(£): #{@cart.total_price.round(2)}
         .d-flex.justify-content-end
-            %p.text-muted (¥): #{@rmb}
-        %h3 支付方式：
-        .btn-block
-            - @payments.each do |payment|
-                = link_to "#{payment.name}", payment, class:'btn btn-primary'
-        %br/
+            %p.text-muted.fst-italic (¥): #{@rmb}
+
+        %h3 支付截图：
+        -if session[:newOrder] == "Created"
+            -if @order.transferent.attached?
+                .col-5
+                    =image_tag @order.transferent, class:'img-fluid'
+        -else
+            %p.fst-italic.fw-bold 没有上传截图
+        %p.text-muted *请上传支付截图后提交订单
+
+
         %h3 联系信息：
         %table.table
             %tr 
@@ -56,4 +62,8 @@
 
 %br/
 .d-flex.justify-content-end 
-    = link_to '一键下单', '/pages/orderConfirm', class:'btn btn-outline-success'
+    = link_to '一键支付', '/payments/choose_payment', class:'btn btn-primary'
+    = link_to '提交订单', '/pages/orderConfirm', class:'btn btn-outline-success'
+
+
+       
