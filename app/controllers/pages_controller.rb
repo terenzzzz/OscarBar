@@ -97,13 +97,6 @@ class PagesController < ApplicationController
         
       end
 
-      # def total_cost
-      #   cost = 0
-      #   @cart = current_user.cart
-      #   @cart.cart_products.each do |cart_product|
-      #     total_cost = (cart_product.product.price * cart_product.quantity + cost)
-      #   end
-      #   return total_cost 
-      # end
+
 
 end
