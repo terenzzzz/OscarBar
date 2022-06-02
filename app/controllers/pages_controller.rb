@@ -73,15 +73,20 @@ class PagesController < ApplicationController
       def orderConfirm
         @cart = current_user.cart
         @cart_products = @cart.cart_products
-
-        @order = Order.create(user_id: current_user.id, total_price: @cart.total_price)
-        @cart_products.each do |car_product|
-          OrderProduct.create(order_id: @order.id, product_id: car_product.product_id, quantity: car_product.quantity )
+        if session[:newOrder] = "Created"
+          @order = Order.where(user_id: current_user.id).last
+          @cart_products.each do |car_product|
+            OrderProduct.create(order_id: @order.id, product_id: car_product.product_id, quantity: car_product.quantity )
+          end
+          @cart.destroy
+          session[:newOrder] = nil
+          redirect_to '/pages/home',notice:"订单提交成功"
+          
+        else
+          redirect_to '/pages/check_out',notice:"请先支付订单并上传截图"
         end
 
-        @cart.destroy
-        session[:newOrder] = nil
-        redirect_to '/pages/home',notice:"订单提交成功"
+        
       end
 
       # def total_cost
