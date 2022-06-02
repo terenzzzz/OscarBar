@@ -73,6 +73,13 @@ class PagesController < ApplicationController
       def orderConfirm
         @cart = current_user.cart
         @cart_products = @cart.cart_products
+
+        goods = ''
+        @cart_products.each do |cart_product|
+            goods =  goods +  ' ' + (Product.find(cart_product.product_id).name + ' X' + cart_product.quantity.to_s)
+        end
+
+        @product_string = goods
         if session[:newOrder] = "Created"
           @order = Order.where(user_id: current_user.id).last
           @cart_products.each do |car_product|
@@ -80,6 +87,7 @@ class PagesController < ApplicationController
           end
           @cart.destroy
           session[:newOrder] = nil
+          OrderMailer.with(user: current_user, products:@product_string).order_create_email.deliver_later
           redirect_to '/pages/home',notice:"订单提交成功"
           
         else
