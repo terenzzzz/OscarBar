@@ -5,22 +5,24 @@
 
         - @order_products.each do |order_product|
             .card
-                .row
-                    .col-2
+                .row.align-items-center
+                    .col-3
                         = image_tag Product.find(order_product.product_id).images[0], class:'img-fluid'
                     .col-2
-                    .col-4
-                        %h6.my-0= Product.find(order_product.product_id).name + ' X' + order_product.quantity.to_s
-                        %span.text-muted= number_to_currency_gbp(Product.find(order_product.product_id).price * order_product.quantity)
+                    .col-3
+                        %h6= Product.find(order_product.product_id).name + ' X' + order_product.quantity.to_s
+                    .col-2
+                    .col-2
+                        %h6.fw-bold= number_to_currency_gbp(Product.find(order_product.product_id).price * order_product.quantity)
 
                             
 
         %br/
 
         .d-flex.justify-content-end
-            %h4 总价(£): #{@order.total_price.round(2)}
+            %h4.fst-italic 总价(£): #{@order.total_price.round(2)}
         .d-flex.justify-content-end
-            %p.text-muted (¥): #{@rmb}
+            %p.text-muted.fst-italic (¥): #{@rmb}
 
         %br/
         %h3 联系信息：

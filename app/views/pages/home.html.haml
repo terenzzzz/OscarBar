@@ -1,15 +1,19 @@
 
 
 %br/
-.row 
-  .col-10
-    %h1 欢迎光临OscarBar!
-    =link_to "登陆", "/users/sign_in",class:'btn btn-primary'
-    = link_to "注册", "/users/sign_up",class:'btn btn-primary'
+.card.border-1.border.border-secondary.rounded
+  .row.p-2
+    .col-10
+      %h1.fw-bold 欢迎光临OscarBar!
+      =link_to "登陆", "/users/sign_in",class:'btn btn-primary'
+      = link_to "注册", "/users/sign_up",class:'btn btn-primary'
 %br/
 %br/
 
-%h3 鸡尾酒 Cocktail:
+.d-flex.justify-content-center
+  %h1.fw-bold 菜单
+
+%h4.fw-bold 鸡尾酒 Cocktail:
 .row
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
@@ -24,7 +28,7 @@
 %br/
 %br/
 
-%h3 威士忌 Whisky:
+%h4.fw-bold 威士忌 Whisky:
 .row
   - @whisky.each do |whisky|
     .col-6.col-md-3.mb-2
