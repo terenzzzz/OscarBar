@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-    default from: 'OscarBar'
+    default from: 'OscarBar@noreply.com'
 
     def order_create_email
         @user = params[:user]
