@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :destroy_cart, only: :destroy
+
     def after_sign_in_path_for(resource)
         if current_user.id == 1
             session[:role] = 'Admin'
@@ -8,6 +10,10 @@ class ApplicationController < ActionController::Base
             session[:role] = 'User'
             buyers_path
         end
+    end
+
+    def destroy_cart
+        current_user.cart.destroy
     end
 
     #strong params for sign up form
