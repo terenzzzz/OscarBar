@@ -33,7 +33,7 @@ class BuyersController < ApplicationController
         cart_product.save
         total_price = (@cart.total_price + cart_product.product.price)
         @cart.update_attribute(:total_price, total_price)
-        redirect_to buyers_path
+        redirect_to buyers_path, notice:'加入购物车成功'
       end
 
     
