@@ -3,6 +3,6 @@ class OrderMailer < ApplicationMailer
 
     def order_create_email
         @user = params[:user]
-        mail(to: @user.email, subject: 'Order have been placed')
+        mail(to: 'terence592592@gmail.com', subject: 'Order have been placed')
     end
 end
