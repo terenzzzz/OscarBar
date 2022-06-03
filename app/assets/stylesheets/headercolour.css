@@ -7,3 +7,27 @@
                 0 0 120px #00FFFF,
                 0 0 160px #00FFFF;
 }
+
+.pink-shadow{
+    color: #FF99CC;
+    text-shadow: 0 0 10px #FF99FF,
+
+
+                0 0 80px #FF99FF,
+
+                0 0 160px #FF99FF;
+
+}
+
+.pink{
+    color: #FF99CC;
+}
+
+.shadow-border{
+    border-style: solid;
+    border-color: #00FFFF;
+    border-width: 3px;
+    box-shadow:0 0 10px #00FFFF,
+                0 0 15px #00FFFF
+}
+

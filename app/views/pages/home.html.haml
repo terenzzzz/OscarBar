@@ -1,23 +1,25 @@
 
 
-%br/
-.card.border-2.border.border-light.rounded
-  .row.p-2
-    .col-10
-      %h1.fw-bold 欢迎光临OscarBar!
-      =link_to "登陆", "/users/sign_in",class:'btn btn-primary'
-      = link_to "注册", "/users/sign_up",class:'btn btn-primary'
+
+.row.align-items-center.mt-5
+  .col-6
+    = image_tag 'open.png', class:'img-fluid'
+  .col-6
+    %h1.fw-bold.blue-shadow 欢迎光临OscarBar!
+ 
+
+
 %br/
 %br/
 
 .d-flex.justify-content-center
-  %h1.fw-bold.text-white.bule-shadow 菜单
+  %h1.fw-bold.yellow.pink-shadow 菜单
 
-%h4.fw-bold.text-white.bule-shadow 鸡尾酒 Cocktail:
+%h4.fw-bold.pink-shadow 鸡尾酒 Cocktail:
 .row
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
-      .card.h-100
+      .card.h-100.shadow-border
         .card-img-top.p-2
           = image_tag cocktail.images[0], class:'img-fluid'
         .card-body
@@ -28,11 +30,11 @@
 %br/
 %br/
 
-%h4.fw-bold.text-white.bule-shadow 威士忌 Whisky:
+%h4.fw-bold.pink-shadow.bule-shadow 威士忌 Whisky:
 .row
   - @whisky.each do |whisky|
     .col-6.col-md-3.mb-2
-      .card.h-100
+      .card.h-100.shadow-border
         .card-img-top.p-2
           = image_tag whisky.images[0], class:'img-fluid'
         .card-body

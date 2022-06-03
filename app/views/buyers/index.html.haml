@@ -19,12 +19,12 @@
         %span.visually-hidden unread messages
 %br/
 
-%h1.text-white Cocktail 鸡尾酒:
+%h1.pink-shadow Cocktail 鸡尾酒:
 .row
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
-      .card.h-100.bg-light
-        .card-img-top.p-2 
+      .card.h-100.bg-light.shadow-border
+        .card-img-top.p-2
           = image_tag cocktail.images[0], class:'img-fluid'
           -# %span.position-absolute.top-0.start-100.translate-middle.p-3.bg.warning.rounded-circle
           -#   %span.bi.bi-hand-thumbs-up-fill.display-6
@@ -38,11 +38,11 @@
 %br/
 %br/
 
-%h1.text-white Whisky 威士忌:
+%h1.pink-shadow Whisky 威士忌:
 .row
   - @whisky.each do |whisky|
     .col-6.col-md-3.mb-2
-      .card.h-100.bg-light
+      .card.h-100.bg-light.shadow-border
         .card-img-top.p-2
           = image_tag whisky.images[0], class:'img-fluid'
         .card-body
