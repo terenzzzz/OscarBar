@@ -1,0 +1,28 @@
+%br/
+.d-flex.justify-content-center 
+    %h1.blue-shadow 用户管理
+.row.mt-5
+    .col-offset-1
+        .row.text-white
+            .col-2
+                ID:
+            .col-2
+                名称
+            .col-2
+                房间号
+            .col-4
+                邮箱
+
+
+- @users.each do |user|
+    .card.mb-2
+        .row.align-items-center 
+            .col-2
+                %p.ms-3 #{user.id}
+            .col-2
+                %p #{user.name}
+            .col-2
+                %p #{user.apartment}
+            .col-4
+                %p #{user.email}
+           

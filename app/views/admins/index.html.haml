@@ -7,5 +7,7 @@
         =link_to '产品管理', '/products', class: 'btn btn-primary primary-button w-100'
     .d-flex.justify-content-center
         =link_to '支付方式管理', '/payments', class: 'btn btn-primary primary-button w-100'
+    .d-flex.justify-content-center
+        =link_to '查看用户', '/admins/view_user', class: 'btn btn-primary primary-button w-100'
 
     = link_to '退出登录', destroy_user_session_path, class: 'btn btn-primary primary-button', method: :delete, title: "Log out of the system"

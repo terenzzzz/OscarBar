@@ -3,4 +3,8 @@ class AdminsController < ApplicationController
     def index
     end
 
+    def view_user
+        @users = User.all 
+    end
+
 end
