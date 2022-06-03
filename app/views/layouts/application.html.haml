@@ -29,7 +29,7 @@
           .col-6.pt-3
             = link_to(image_tag("logo1.png", class: "img-fluid "), '/')
           
-          .col-3.d-flex.justify-content-center.ps-0
+          .col-3.ps-0
             -if user_signed_in?
               %a.nav-link.dropdown{ href: '#', data: { bs_toggle: :dropdown }, aria: { expanded: false } }
                 .i.bi.bi-person-circle.display-6.pink
