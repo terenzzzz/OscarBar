@@ -8,7 +8,10 @@
             =link_to payment,class: "text-decoration-none" do
                 .card.bg-light.h-100
                     .card-img-top
-                        = image_tag payment.proof, class:'img-fluid'
+                        -if payment.proof.attached?
+                            = image_tag payment.proof, class:'img-fluid'
+                        -else 
+                            %p 没有图片
                     .card-body
                         %h4.text-black #{payment.name}
                     .card-footer
