@@ -18,7 +18,7 @@
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
       .card.h-100
-        .card-img-top
+        .card-img-top.p-2
           = image_tag cocktail.images[0], class:'img-fluid'
         .card-body
           %p.fw-bold #{cocktail.name}
@@ -33,7 +33,7 @@
   - @whisky.each do |whisky|
     .col-6.col-md-3.mb-2
       .card.h-100
-        .card-img-top
+        .card-img-top.p-2
           = image_tag whisky.images[0], class:'img-fluid'
         .card-body
           %p.fw-bold #{whisky.name}

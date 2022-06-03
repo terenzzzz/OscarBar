@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
     end
 
     def destroy_cart
-        current_user.cart.destroy
+        if session[:role] == 'User'
+            current_user.cart.destroy
+        end
     end
 
     #strong params for sign up form
