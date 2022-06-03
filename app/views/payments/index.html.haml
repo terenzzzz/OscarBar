@@ -1,6 +1,7 @@
-%h1 管理支付方式
+.d-flex.justify-content-center.mt-5.mb-3
+    %h1.blue-shadow 管理支付方式
 %br/
-%p 当前汇率： #{@rate.exchange_rate}
+%p.text-white.fst-italic 当前汇率： #{@rate.exchange_rate}
 .row
     - @payments.each do |payment|
         .col-6.col-md-4

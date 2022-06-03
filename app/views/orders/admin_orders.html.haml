@@ -1,10 +1,10 @@
 %br/
 .d-flex.justify-content-center 
-    %h1 订单管理
+    %h1.blue-shadow 订单管理
 %br/
 .row
     .col-offset-1
-        .row 
+        .row.text-white
             .col-2
                 ID:
             .col-4
@@ -17,10 +17,10 @@
                 操作
 
         - @orders.each do |order|
-            .card
+            .card.mb-2
                 .row.align-items-center 
                     .col-2
-                        %p #{order.id}
+                        %p.ms-3 #{order.id}
                     .col-4
                         .row.g-0
                             - order.order_products.each do |product|
