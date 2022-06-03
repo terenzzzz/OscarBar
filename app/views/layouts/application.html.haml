@@ -26,10 +26,10 @@
           .col-3.d-flex.justify-content-center.my-2
             .i.bi.bi-arrow-left.display-6.pink
 
-          .col-6.pt-3
+          .col-6.pt-1
             = link_to(image_tag("logo1.png", class: "img-fluid "), '/')
           
-          .col-3.ps-0
+          .col-3
             -if user_signed_in?
               %a.nav-link.dropdown{ href: '#', data: { bs_toggle: :dropdown }, aria: { expanded: false } }
                 .i.bi.bi-person-circle.display-6.pink
@@ -43,9 +43,8 @@
                 = link_to '个人主页' , "/profiles/#{current_user.id}", class: 'dropdown-item', title: 'Go to the profile page'
                 = link_to '退出登录', destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system"
             -else
-              .btn-block
-                = link_to "登陆", "/users/sign_in",class:'btn btn-success btn-sm'
-                = link_to "注册", "/users/sign_up",class:'btn btn-primary btn-sm'
+              = link_to "登陆", "/users/sign_in",class:'btn btn-success btn-sm'
+              -# = link_to "注册", "/users/sign_up",class:'btn btn-primary btn-sm'
 
 
 
@@ -55,7 +54,7 @@
   .flash-messages
     - flash.each do |name, msg|
       - next unless name == 'alert' || name == 'notice'
-      .alert.alert-info
+      .alert.alert-secondary
         .container
           = msg
           %a{ href: '#', title: 'Hide this message', data: { bs_dismiss: :alert } } 关闭
