@@ -62,5 +62,8 @@
     .container= yield
     
   %footer.pt-4.text-center.text-small{style: "background-color: black"}
-
-    %p.text-white &copy; Terenzzzz #{Date.today.year}
+    .row.align-items-center.mb-3
+      .col-9
+        %p.text-white.ps-5 &copy; Terenzzzz #{Date.today.year}
+      .col-3.col-md-1
+        = image_tag "qrCode.png", class:'img-fluid'

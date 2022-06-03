@@ -1,7 +1,11 @@
 
 .card.h-100.mt-5
-    .d-flex.justify-content-center
-        %h1.pt-2 订单详情
+    .row.align-items-center
+        .col-3
+            = image_tag "qrCode.png", class:'img-fluid'
+        .col-1
+        .col-8
+            %h1.pt-2 订单详情
     .card.body.p-2
         %h3 商品：
         -if @cart = current_user.cart 
