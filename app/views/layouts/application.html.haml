@@ -43,7 +43,7 @@
                 = link_to '个人主页' , "/profiles/#{current_user.id}", class: 'dropdown-item', title: 'Go to the profile page'
                 = link_to '退出登录', destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system"
             -else
-              = link_to "登陆", "/users/sign_in",class:'btn btn-success btn-sm'
+              = link_to "登陆", "/users/sign_in",class:'btn btn-success btn-md'
               -# = link_to "注册", "/users/sign_up",class:'btn btn-primary btn-sm'
 
 

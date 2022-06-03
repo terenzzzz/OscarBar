@@ -73,12 +73,13 @@
 
 %br/
 .d-flex.justify-content-end 
-    = link_to '一键支付', '/payments/choose_payment', class:'btn btn-primary'
-    -if session[:newOrder] == "Created"
-        -if @order.transferent.attached?
-            = link_to '提交订单', '/pages/orderConfirm', class:'btn btn-outline-success'
-    -else   
-        = link_to '提交订单', '/pages/orderConfirm', class:'btn btn-outline-success disabled'
+    .btn-block
+        = link_to '一键支付', '/payments/choose_payment', class:'btn btn-primary'
+        -if session[:newOrder] == "Created"
+            -if @order.transferent.attached?
+                = link_to '提交订单', '/pages/orderConfirm', class:'btn btn-outline-success'
+        -else   
+            = link_to '提交订单', '/pages/orderConfirm', class:'btn btn-outline-success disabled'
 
 
        
