@@ -1,36 +1,30 @@
+%br
 .d-flex.justify-content-center
-    %h1 个人主页
+    %h1.blue-shadow 个人主页
+.d-flex.justify-content-end
+    = link_to "修改", edit_profile_path(current_user), class: 'btn btn-primary primary-button'
+.card.m-3
+    %table.table
+        %tr
+            %td ID:
+            %td= current_user.id
 
-%table.table
+        %tr
+            %td 邮箱地址:
+            %td= current_user.email
 
-    %tr 
-        %td ID:
-        %td= current_user.id
+        %tr
+            %td 姓名:
+            %td= current_user.name
 
-    %tr 
-        %td 邮箱地址:
-        %td= current_user.email
+        %tr
+            %td 手机号:
+            %td= current_user.mobile
 
-    %tr 
-        %td 姓名:
-        %td= current_user.name
+        %tr
+            %td 微信号:
+            %td= current_user.wechat 
 
-    %tr 
-        %td 手机号:
-        %td= current_user.mobile
-
-    %tr 
-        %td 微信号:
-        %td= current_user.wechat 
-
-    %tr 
-        %td 门牌号:
-        %td= current_user.apartment
-
-
-
-    
-
-
-
-= link_to "修改", edit_profile_path(current_user), class: 'btn btn-primary primary-button'
+        %tr 
+            %td 门牌号:
+            %td= current_user.apartment

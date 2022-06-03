@@ -1,5 +1,7 @@
-.card.h-100
-    %h1 订单详情
+
+.card.h-100.mt-5
+    .d-flex.justify-content-center
+        %h1.pt-2 订单详情
     .card.body.p-2
         %h3 商品：
         -if @cart = current_user.cart 
@@ -28,16 +30,17 @@
         .d-flex.justify-content-end
             %p.text-muted.fst-italic (¥): #{@rmb}
 
-        %h3 支付截图：
-        -if session[:newOrder] == "Created"
-            -if @order.transferent.attached?
-                .col-5
-                    =image_tag @order.transferent, class:'img-fluid'
-        -else
-            %p.fst-italic.fw-bold 没有上传截图
-        %p.text-muted *请上传支付截图后提交订单
+        .card
+            %h3 支付截图：
+            -if session[:newOrder] == "Created"
+                -if @order.transferent.attached?
+                    .col-5
+                        =image_tag @order.transferent, class:'img-fluid'
+            -else
+                %p.fst-italic.fw-bold 没有上传截图
+            %p.text-muted *请上传支付截图后提交订单
 
-
+        %br/
         %h3 联系信息：
         %table.table
             %tr 
@@ -62,7 +65,7 @@
         %p.text-muted *如需修改联系信息请到个人主页
     .card.footer
         .d-flex.justify-content-center
-            %p 感谢您对OscarBar的支持!
+            %p.pt-2 感谢您对OscarBar的支持!
 
 %br/
 .d-flex.justify-content-end 

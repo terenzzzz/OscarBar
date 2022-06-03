@@ -10,11 +10,11 @@
 -if session[:role] == 'User'
   %br/
   .d-flex.justify-content-center
-    %h3 #{@payment.name}
+    %h1.blue-shadow #{@payment.name}
   .d-flex.justify-content-center  
     %p= image_tag @payment.proof, class:'img-fluid'
   .d-flex.justify-content-center
-    %h4 请支付(£): #{@total.round(2)} 或者 (¥): #{@rmb}
+    %h4.text-white 请支付(£): #{@total.round(2)} 或者 (¥): #{@rmb}
  
   %br/
   = link_to '取消支付', '/payments/cancel_payment', class:'btn btn-primary'

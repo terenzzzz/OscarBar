@@ -1,22 +1,22 @@
 %br/
 .d-flex.justify-content-center 
-    %h1 订单管理
+    %h1.text-white 订单管理
 %br/
 .row
     .col-offset-1
         .row 
-            .col-2
+            .col-2.text-white
                 ID:
-            .col-6
+            .col-6.text-white
                 商品
-            .col-2
+            .col-2.text-white
                 价格
-            .col-2
+            .col-2.text-white
                 状态
 
         - @orders.each do |order|
             =link_to  "/orders/#{order.id}/full_order" do
-                .card
+                .card.mb-1
                     .row.align-items-center 
                         .col-2
                             %p #{order.id}

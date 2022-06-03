@@ -1,8 +1,8 @@
 !!!
-%html
-  %head
+%html{style: "background-color: black"}
+  %head{style: "background-color: black"}
     
-    %title Oscarbar
+    %title Oscarbar Official Website
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
@@ -17,21 +17,22 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag "application"
     = favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon"
+    = stylesheet_link_tag 'headercolour'
 
-  %body
-    %header
+  %body{style: "background-color: black"}
+    %header{style: "background-color: black"}
       .container-fluid
-        .row
+        .row.align-items-center
           .col-3.d-flex.justify-content-center.my-2
-            .i.bi.bi-arrow-left.display-6
+            .i.bi.bi-arrow-left.display-6.text-white
 
           .col-6.pt-3
-            = link_to(image_tag("logo1.PNG", class: "img-fluid"), '/')
+            = link_to(image_tag("logo1.png", class: "img-fluid"), '/')
           
           .col-3.d-flex.justify-content-center    
             -if user_signed_in?
               %a.nav-link.dropdown{ href: '#', data: { bs_toggle: :dropdown }, aria: { expanded: false } }
-                .i.bi.bi-person-circle.display-6
+                .i.bi.bi-person-circle.display-6.text-white
               %nav.dropdown-menu.dropdown-menu-sm-end
                 - if session[:role] == 'Admin'
                   = link_to '订单管理' , '/orders/admin_orders', class: 'dropdown-item'
@@ -57,9 +58,9 @@
           %a{ href: '#', title: 'Hide this message', data: { bs_dismiss: :alert } } 关闭
 
 
-  %main
+  %main{style: "background-color: black"}
     .container= yield
     
-  %footer.pt-4.text-center.text-small
+  %footer.pt-4.text-center.text-small{style: "background-color: black"}
 
-    %p &copy; Terenzzzz #{Date.today.year}
+    %p.text-white &copy; Terenzzzz #{Date.today.year}

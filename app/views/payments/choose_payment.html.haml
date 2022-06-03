@@ -1,9 +1,6 @@
-.row.align-items-center
-    .col.offset-1
-        .col-10
-            .card.align-items-center
-                %h1 请选择您想要支付的方式
-                %br/
-                .btn-block
-                    - @payments.each do |payment|
-                        = link_to "#{payment.name}", payment, class:'btn btn-primary'
+.card.align-items-center.mt-5.m-3.pb-5
+    %h1.pt-3 请选择您想要支付的方式
+    %br/
+    .btn-block
+        - @payments.each do |payment|
+            = link_to "#{payment.name}", payment, class:'btn btn-primary'

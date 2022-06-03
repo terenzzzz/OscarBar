@@ -5,13 +5,13 @@
 
 %br/
 .row 
-  .col-10
-    %h1 欢迎光临OscarBar!
+  .col-4
+    = image_tag 'open.png', class:'img-fluid'
+.row 
+  .col-6
+    %h1.blue-shadow 欢迎光临OscarBar!
+  .col-3
   .col-2
-    -# =link_to  '/' do
-    -#   .fa-solid.fa-cart-shopping.fa-2xl 
-    -#   .badge.bg-primary.rounded-pill=0
-
     =link_to "/pages/check_out" ,class:"btn btn-primary position-relative"do
       .bi.bi-cart4.display-7
       %span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger
@@ -19,11 +19,11 @@
         %span.visually-hidden unread messages
 %br/
 
-%h1 Cocktail:
+%h1.text-white Cocktail 鸡尾酒:
 .row
   - @cocktail.each do |cocktail|
     .col-6.col-md-3.mb-2
-      .card.h-100
+      .card.h-100.bg-light
         .card-img-top.p-2 
           = image_tag cocktail.images[0], class:'img-fluid'
           -# %span.position-absolute.top-0.start-100.translate-middle.p-3.bg.warning.rounded-circle
@@ -38,11 +38,11 @@
 %br/
 %br/
 
-%h1 Whisky:
+%h1.text-white Whisky 威士忌:
 .row
   - @whisky.each do |whisky|
     .col-6.col-md-3.mb-2
-      .card.h-100
+      .card.h-100.bg-light
         .card-img-top.p-2
           = image_tag whisky.images[0], class:'img-fluid'
         .card-body
