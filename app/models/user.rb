@@ -22,4 +22,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :cart, dependent: :destroy
+
+  validates :name, :mobile, :wechat, :apartment, presence: true
 end
