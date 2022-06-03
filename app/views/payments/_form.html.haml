@@ -4,8 +4,8 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.file_field :proof
-    = f.input :name, label: '支付方式名称'
+    = f.file_field :proof,:label_html => { :class => "text-white" }
+    = f.input :name, label: '支付方式名称',  :label_html => { :class => "text-white" }
   
   %br/
   .form-actions

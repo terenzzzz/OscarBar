@@ -3,12 +3,13 @@
 
   .form-inputs
     -# = f.input :avatar, label: 'Add Avatar Here'
-    = f.input :name, placeholder:"Enter your name here", label: '姓名'
-    = f.input :mobile, placeholder:"Enter your job here", label: '手机号码'
-    = f.input :wechat, placeholder:"Enter your Wechat here", label: '微信号'
-    = f.input :apartment, placeholder:"Enter your apartment number here", label: '门牌号'
+    
+    = f.input :name, placeholder:"Enter your name here", id: 'name', :label_html => { :class => "text-white" }
+    = f.input :mobile, placeholder:"Enter your job here", label: '手机号码',:label_html => { :class => "text-white" }
+    = f.input :wechat, placeholder:"Enter your Wechat here", label: '微信号',:label_html => { :class => "text-white" }
+    = f.input :apartment, placeholder:"Enter your apartment number here", label: '门牌号',:label_html => { :class => "text-white" }
 
 
   %br/
   .form-actions
-    = f.button :submit, class: 'btn btn-primary primary-button'
+    = f.submit :提交修改, class: 'btn btn-primary primary-button'
