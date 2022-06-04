@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
 
     def full_order
         @order = Order.find(params[:id])
+        if @order.temperate_id != nil
+            @temperate = Temperate.find(@order.temperate_id)
+        end
+
         @order_products = @order.order_products
         @user = User.find(@order.user_id)
         @rate = Rate.first.exchange_rate
@@ -18,7 +22,7 @@ class OrdersController < ApplicationController
     end
 
     def edit
-        if session[:newOrder] = "Created"
+        if session[:newOrder] == "Created"
             @order = Order.where(user_id: current_user.id).last
         end
 

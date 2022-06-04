@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_210013) do
+ActiveRecord::Schema.define(version: 2022_06_04_002022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 2022_06_01_210013) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "total_price"
+    t.bigint "temperate_id"
+    t.index ["temperate_id"], name: "index_orders_on_temperate_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -102,6 +104,17 @@ ActiveRecord::Schema.define(version: 2022_06_01_210013) do
 
   create_table "rates", force: :cascade do |t|
     t.float "exchange_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "temperates", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+  end
+
+  create_table "temps", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,5 +142,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_210013) do
   add_foreign_key "carts", "users"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
+  add_foreign_key "orders", "temperates"
   add_foreign_key "orders", "users"
 end

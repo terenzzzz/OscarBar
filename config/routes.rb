@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :temperates
   resources :rates
   devise_for :users
   resources :users

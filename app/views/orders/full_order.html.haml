@@ -23,9 +23,9 @@
 
         %h3 支付截图：
         .row
-            -if @order.transferent.attached?
+            -if @order.temperate_id != nil && @temperate.temp_transferent.attached?
                 .col-5
-                    =image_tag @order.transferent, class:'img-fluid'
+                    =image_tag @temperate.temp_transferent, class:'img-fluid'
             -else 
                 %p 用户没有上传
 

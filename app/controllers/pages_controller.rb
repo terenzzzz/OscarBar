@@ -19,8 +19,8 @@ class PagesController < ApplicationController
 
     def check_out
         @cart = current_user.cart
-        if session[:newOrder] == "Created"
-          @order = Order.where(user_id: current_user.id, total_price: @cart.total_price).last
+        if session[:transferent] == 'created'
+          @temperate = Temperate.where(user_id: current_user.id).last
         end
 
         @payments = Payment.all
@@ -80,13 +80,15 @@ class PagesController < ApplicationController
         end
 
         @product_string = goods
-        if session[:newOrder] = "Created"
-          @order = Order.where(user_id: current_user.id).last
+        if session[:transferent] = 'created'
+          @temperate = Temperate.where(user_id: current_user.id).last
+          @order = Order.create(user_id: current_user.id, total_price:@cart.total_price,temperate_id: @temperate.id )
+          
           @cart_products.each do |car_product|
             OrderProduct.create(order_id: @order.id, product_id: car_product.product_id, quantity: car_product.quantity )
           end
           @cart.destroy
-          session[:newOrder] = nil
+          session[:transferent] = nil
           OrderMailer.with(user: current_user, products:@product_string ).new_order_email.deliver_later
           redirect_to '/pages/home',notice:"订单提交成功"
           

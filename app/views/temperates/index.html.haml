@@ -1,0 +1,19 @@
+%h1 Listing temperates
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @temperates.each do |temperate|
+      %tr
+        %td= link_to 'Show', temperate
+        %td= link_to 'Edit', edit_temperate_path(temperate)
+        %td= link_to 'Destroy', temperate, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Temperate', new_temperate_path

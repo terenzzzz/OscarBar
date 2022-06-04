@@ -24,7 +24,8 @@
       .container-fluid
         .row.align-items-center
           .col-3.d-flex.justify-content-center.my-2
-            .i.bi.bi-arrow-left.display-6.pink
+            =link_to 'javascript:history.back()' do
+              .i.bi.bi-arrow-left.display-6.pink
 
           .col-6.pt-1
             = link_to(image_tag("logo1.png", class: "img-fluid "), '/')
