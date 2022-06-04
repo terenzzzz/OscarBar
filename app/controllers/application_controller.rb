@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
-    # before_action :destroy_cart, only: :destroy
+    before_action :destroy_cart, only: :destroy
 
     def after_sign_in_path_for(resource)
         if current_user.id == 1
